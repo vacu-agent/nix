@@ -42,6 +42,7 @@ EOF
 # Filename completion
 [[ "$(NIX_GET_COMPLETIONS=2 nix build ./f)" == $'filenames\n./foo\t' ]]
 [[ "$(NIX_GET_COMPLETIONS=2 nix build ./nonexistent)" == $'filenames' ]]
+[[ "$(NIX_GET_COMPLETIONS=3 nix store add ./f)" == $'filenames\n./foo\t' ]]
 
 # Input override completion
 [[ "$(NIX_GET_COMPLETIONS=4 nix build ./foo --override-input '')" == $'normal\na\t' ]]

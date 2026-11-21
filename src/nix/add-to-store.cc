@@ -19,8 +19,7 @@ struct CmdAddToStore : MixDryRun, StoreCommand
 
     CmdAddToStore()
     {
-        // FIXME: completion
-        expectArg("path", &path);
+        expectArgs({.label = "path", .handler = {&path}, .completer = completePath});
 
         addFlag({
             .longName = "name",
